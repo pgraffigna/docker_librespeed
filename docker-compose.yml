@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  librespeed:
+    image: ghcr.io/linuxserver/librespeed
+    container_name: librespeed
+    environment:
+      - PUID=900
+      - PGID=900
+      - TZ=America/Argentina/Buenos_Aires
+    volumes:
+      - .config/librespeed:/config
+    ports:
+      - 8080:80
+    restart: unless-stopped
